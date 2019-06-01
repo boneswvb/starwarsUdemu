@@ -2,34 +2,28 @@
 import { ApiToGet } from './ApiToGet';
 
 export const filmsUse = [];
+const peopleUse = [];
+const planetsUse = [];
+const speciesUse = [];
+const starshipsUse = [];
+const vehiclesUse = [];
 
 const ApiGetData = async function() {
-  try {
-    const [ films, people, planets, species, starships, vehicles ] = await 
-    Promise.all(ApiToGet.map(async function(url) {
-        const response = await fetch(url);
-        return response.json();
-    }));
-
-    filmsUse.push(films)
-
-    console.log('films', films);
-    console.log('people', people);
-    console.log('planets', planets);
-    console.log('species', species);
-    console.log('starships', starships);
-    console.log('vehicles', vehicles);
-
-  } catch (err) {
-    console.log('ooooooops', err);
-  }
+	try{
+  const [ films, people,planets, species, starships, vehicles ] = 
+    await Promise.all(ApiToGet.map(url =>
+      fetch(url)
+      .then(resp => resp.json())
+  ));
+		filmsUse.push(films[0].results);
+		peopleUse.push(people);
+		planetsUse.push(planets);
+		speciesUse.push(species);
+		starshipsUse.push(starships)
+		vehiclesUse.push(vehicles);
+	} catch(err) {
+		console.log('oooooooops', err);
 }
-console.log('apigetdata', filmsUse);
+}
+	
 export default ApiGetData;
-
- 
- 
- 
- 
- 
- 

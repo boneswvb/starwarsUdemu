@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import FilmsLoop from './FilmsLoop';
-import {filmsUse} from './ApiGetData';
-
+import ClassFilmData from './ClassFilmData';
+// import {films} from './ApiGetData';
 
 function App() {
   return (
     <div className="App">
-    	<p>heading</p>
-      <FilmsLoop filmData={ filmsUse } />
-      {console.log('app.js', filmsUse)}
+    	<p className="tc">App.js</p>
+      <ClassFilmData />
     </div>
   );
 }

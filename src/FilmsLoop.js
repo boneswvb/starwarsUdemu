@@ -1,14 +1,14 @@
 import React from 'react';
 import FilmsInfo from './FilmsInfo';
 
-
-const FilmsLoop = ({ filmData }) => {
+const FilmsLoop = ({ apiData }) => {
 	return(
 		<div>
 			{
-				filmData.map((user, i) => {
+				apiData.map((answers, i) => {
 					return(<FilmsInfo 
-						key={i}
+						key={ i }
+						planet={ answers[i].name }
 					/>
 					);
 				})
