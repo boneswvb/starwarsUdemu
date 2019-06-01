@@ -3,16 +3,19 @@ import FilmsInfo from './FilmsInfo';
 
 const FilmsLoop = ({ apiData }) => {
 	return(
-		<div>
-			{
+		<div className="tc f1 unknown">
+		{
+			setTimeout(() => {
+				console.log(apiData , 'apiData')
 				apiData.map((answers, i) => {
 					return(<FilmsInfo 
 						key={ i }
-						planet={ answers[i].name }
+						planet={ apiData[i].results[i].name }
 					/>
 					);
 				})
-			}
+			},5000)
+		}
 		</div>
 	);
 }

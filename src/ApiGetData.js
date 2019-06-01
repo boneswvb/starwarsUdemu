@@ -10,17 +10,18 @@ const vehiclesUse = [];
 
 const ApiGetData = async function() {
 	try{
-  const [ films, people,planets, species, starships, vehicles ] = 
+  const [ films, people, planets, species, starships, vehicles ] = 
     await Promise.all(ApiToGet.map(url =>
       fetch(url)
       .then(resp => resp.json())
   ));
-		filmsUse.push(films[0].results);
+		filmsUse.push(films);
 		peopleUse.push(people);
 		planetsUse.push(planets);
 		speciesUse.push(species);
 		starshipsUse.push(starships)
 		vehiclesUse.push(vehicles);
+		console.log(films, people);
 	} catch(err) {
 		console.log('oooooooops', err);
 }
