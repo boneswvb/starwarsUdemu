@@ -5,16 +5,13 @@ const FilmsLoop = ({ apiData }) => {
 	return(
 		<div className="tc f1 unknown">
 		{
-			setTimeout(() => {
-				console.log(apiData , 'apiData')
 				apiData.map((answers, i) => {
 					return(<FilmsInfo 
 						key={ i }
-						planet={ apiData[i].results[i].name }
+						// title={ apiData.films.results[i].title }
 					/>
 					);
 				})
-			},5000)
 		}
 		</div>
 	);

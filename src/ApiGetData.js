@@ -1,30 +1,19 @@
 // import React from 'react';
 import { ApiToGet } from './ApiToGet';
 
-export const filmsUse = [];
-const peopleUse = [];
-const planetsUse = [];
-const speciesUse = [];
-const starshipsUse = [];
-const vehiclesUse = [];
-
 const ApiGetData = async function() {
 	try{
-  const [ films, people, planets, species, starships, vehicles ] = 
-    await Promise.all(ApiToGet.map(url =>
-      fetch(url)
-      .then(resp => resp.json())
-  ));
-		filmsUse.push(films);
-		peopleUse.push(people);
-		planetsUse.push(planets);
-		speciesUse.push(species);
-		starshipsUse.push(starships)
-		vehiclesUse.push(vehicles);
-		console.log(films, people);
-	} catch(err) {
-		console.log('oooooooops', err);
+	  const films = 
+	    await Promise.all(ApiToGet.map(url =>
+	      fetch(url)
+	      .then(resp => resp.json())
+	  ));
+	    console.log('film title - ', films.results)
+			return(films);
+		} catch(err) {
+			console.log('oooooooops', err);
+	}
 }
-}
+ApiGetData();
 	
 export default ApiGetData;
