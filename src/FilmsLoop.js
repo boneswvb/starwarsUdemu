@@ -1,18 +1,20 @@
 import React from 'react';
 import FilmsInfo from './FilmsInfo';
 
-const FilmsLoop = ({ apiData }) => {
+
+const FilmsLoop = ({ filmInformation }) => {
 	return(
-		<div className="tc f1 unknown">
-		{
-				apiData.map((answers, i) => {
+		<div>
+			{
+				filmInformation.map((user, i) => {
 					return(<FilmsInfo 
-						key={ i }
-						// title={ apiData.films.results[i].title }
+						key={i}
+						id={ i + 1 }
+						title={ filmInformation[i].title }
 					/>
 					);
 				})
-		}
+			}
 		</div>
 	);
 }

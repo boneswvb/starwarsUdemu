@@ -1,10 +1,11 @@
 import React from 'react';
 
-const FilmsInfo = () => {
+const FilmsInfo = ({ id, title }) => {
 	return(
-		<div className='tc bg-light-blue dib br3 pa3 ma3 grow bw2 shadow-5'>
-			<p>Planet</p>
-			<p>FilmsInfo.js</p>
+		<div className='tc dib br3 pa3 ma3 grow bw2 shadow-5'>
+			<p>Star War Films</p>
+			<p>{ title }</p>
+			<p>{ id }</p>
 		</div>
 	);
 };
