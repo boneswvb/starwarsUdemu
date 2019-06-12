@@ -9,8 +9,14 @@ const PeoplesLoop = ({ peopleInformation }) => {
 				peopleInformation.map((user, i) => {
 					return(<PeopleInfo 
 						key={i}
-						id={ i + 1 }
 						name={ peopleInformation[i].name }
+						dob={ peopleInformation[i].birth_year }
+						eyeColor={ peopleInformation[i].eye_color }
+						gender={ peopleInformation[i].gender }
+						hairColor={ peopleInformation[i].hair_color }
+						height={ peopleInformation[i].height }
+						mass={ peopleInformation[i].mass }
+						skinColor={ peopleInformation[i].skin_color }
 					/>
 					);
 				})

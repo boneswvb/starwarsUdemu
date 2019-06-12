@@ -9,20 +9,17 @@ class ClassPeopleData extends Component {
 		}
 	}
 	
-componentDidMount() {
-	const gettingData = async function() {
+async componentDidMount() {
 	  const resp = await fetch('https://swapi.co/api/people/')
 	  const data = await resp.json(); 
-	  console.log(data.results);
-	  // this.setState({ people: data.results })
+	  this.setState({ people: data.results })
+	  console.log('people', data.results)
 	}
-	gettingData();
-}
 
  	render() {
 		return(
 		<div>
-			<h1 className="tc f2">Star Wars people</h1>
+			<h1 className="tc f2">Star Wars People</h1>
 			<PeoplesLoop peopleInformation={ this.state.people } />
 		</div>
 	);
@@ -30,7 +27,3 @@ componentDidMount() {
 }
 
 export default ClassPeopleData;
-
-
-
- // this.setState({ people: data.results })
